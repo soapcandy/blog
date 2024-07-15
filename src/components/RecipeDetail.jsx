@@ -10,6 +10,9 @@ function RecipeDetail() {
       <div>{item.title}</div>
       <div>{item.content}</div>
       <div>{item.createdAt}</div>
+      <NavLink to={"/add"} state={item}>
+        수정
+      </NavLink>
       <NavLink to={"/"}>홈으로</NavLink>
     </>
   );

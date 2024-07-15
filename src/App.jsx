@@ -6,8 +6,16 @@ import RecipePage from "./pages/RecipePage";
 
 function App() {
   const [contentValue, setContentValue] = useState([]);
+
   const addValue = (contentList) => {
     setContentValue([...contentValue, contentList]);
+  };
+
+  const updateValue = (updatedContent) => {
+    const updatedList = contentValue.map((item) =>
+      item.id === updatedContent.id ? updatedContent : item
+    );
+    setContentValue(updatedList);
   };
 
   useEffect(() => {
@@ -23,7 +31,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RecipePage contentValue={contentValue} />} />
-        <Route path="/add" element={<ContentAdd addValue={addValue} />} />
+        <Route
+          path="/add"
+          element={<ContentAdd addValue={addValue} updateValue={updateValue} />}
+        />
         <Route path="/:id" element={<RecipeDetail />} />
       </Routes>
     </BrowserRouter>
