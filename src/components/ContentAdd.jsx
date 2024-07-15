@@ -5,12 +5,11 @@ function ContentAdd({ addValue }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
-  const [id, setId] = useState(0);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     const newContent = {
-      id,
+      id: Date.now(),
       author,
       title,
       content,
@@ -20,19 +19,18 @@ function ContentAdd({ addValue }) {
     setTitle("");
     setAuthor("");
     setContent("");
-    setId(id + 1);
     navigate("/");
   };
 
   return (
     <div>
       <div>
-        <label>제목</label>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      </div>
-      <div>
         <label>작성자</label>
         <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+      </div>
+      <div>
+        <label>제목</label>
+        <input value={title} onChange={(e) => setTitle(e.target.value)} />
       </div>
       <div>
         <label>내용</label>
