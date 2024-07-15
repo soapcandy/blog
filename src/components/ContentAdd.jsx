@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ContentAdd({ addValue }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [id, setId] = useState(0);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     const newContent = {
@@ -19,6 +21,7 @@ function ContentAdd({ addValue }) {
     setAuthor("");
     setContent("");
     setId(id + 1);
+    navigate("/");
   };
 
   return (
