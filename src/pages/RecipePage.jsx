@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import RecipeItem from "./RecipeItem";
+import RecipeItem from "../components/RecipeItem";
 
-function RecipeList({ contentValue }) {
+function RecipePage({ contentValue }) {
   return (
     <div>
       {contentValue.map((item) => (
@@ -11,4 +11,4 @@ function RecipeList({ contentValue }) {
     </div>
   );
 }
-export default RecipeList;
+export default RecipePage;

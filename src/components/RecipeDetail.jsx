@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function RecipeDetail() {
   const location = useLocation();
@@ -10,6 +10,7 @@ function RecipeDetail() {
       <div>{item.title}</div>
       <div>{item.content}</div>
       <div>{item.createdAt}</div>
+      <NavLink to={"/"}>홈으로</NavLink>
     </>
   );
 }
