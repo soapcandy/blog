@@ -4,7 +4,7 @@ function RecipeItem({ item }) {
       <div>{item.author}</div>
       <div>{item.title}</div>
       <div>{item.content}</div>
-      <div>{item.date}</div>
+      <div>{item.createdAt}</div>
       <div>---------------------</div>
     </>
   );

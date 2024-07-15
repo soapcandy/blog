@@ -1,19 +1,22 @@
 import { useState } from "react";
 
-function ContentAdd({ setContentValue }) {
+function ContentAdd({ addValue }) {
   const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [id, setId] = useState(0);
 
   const handleSubmit = () => {
     const newContent = {
-      id: id,
+      id,
+      author,
       title,
       content,
       createdAt: new Date().toLocaleString(),
     };
-    setContentValue(newContent);
+    addValue(newContent);
     setTitle("");
+    setAuthor("");
     setContent("");
     setId(id + 1);
   };
@@ -23,6 +26,10 @@ function ContentAdd({ setContentValue }) {
       <div>
         <label>제목</label>
         <input value={title} onChange={(e) => setTitle(e.target.value)} />
+      </div>
+      <div>
+        <label>작성자</label>
+        <input value={author} onChange={(e) => setAuthor(e.target.value)} />
       </div>
       <div>
         <label>내용</label>
