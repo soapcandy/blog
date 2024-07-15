@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import RecipeItem from "../components/RecipeItem";
+import RecipeItem from "../components/recipe/RecipeItem";
 
 function RecipePage({ contentValue }) {
   return (

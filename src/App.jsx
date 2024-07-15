@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ContentAdd from "./components/ContentAdd";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import RecipeDetail from "./components/RecipeDetail";
+import RecipeDetail from "./components/recipe/RecipeDetail";
 import RecipePage from "./pages/RecipePage";
 
 function App() {
