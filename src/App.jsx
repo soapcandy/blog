@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ContentAdd from "./components/ContentAdd";
 import RecipeList from "./components/RecipeList";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RecipeDetail from "./components/RecipeDetail";
 
 function App() {
   const [contentValue, setContentValue] = useState([]);
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<RecipeList contentValue={contentValue} />} />
         <Route path="/add" element={<ContentAdd addValue={addValue} />} />
+        <Route path="/:id" element={<RecipeDetail />} />
       </Routes>
     </BrowserRouter>
   );
