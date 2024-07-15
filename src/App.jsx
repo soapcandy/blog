@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContentAdd from "./components/ContentAdd";
 import RecipeList from "./components/RecipeList";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [contentValue, setContentValue] = useState([]);
-
   const addValue = (contentList) => {
     setContentValue([...contentValue, contentList]);
   };
+
+  useEffect(() => {
+    const getList = JSON.parse(localStorage.getItem("List"));
+    setContentValue(getList);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("List", JSON.stringify(contentValue));
+  }, [contentValue]);
 
   return (
     <BrowserRouter>
@@ -16,8 +24,6 @@ function App() {
         <Route path="/" element={<RecipeList contentValue={contentValue} />} />
         <Route path="/add" element={<ContentAdd addValue={addValue} />} />
       </Routes>
-      {/* <RecipeList contentValue={contentValue} />
-      <ContentAdd addValue={addValue} /> */}
     </BrowserRouter>
   );
 }
