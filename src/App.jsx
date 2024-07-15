@@ -18,6 +18,11 @@ function App() {
     setContentValue(updatedList);
   };
 
+  const deleteValue = (id) => {
+    const updatedList = contentValue.filter((item) => item.id !== id);
+    setContentValue(updatedList);
+  };
+
   useEffect(() => {
     const getList = JSON.parse(localStorage.getItem("List"));
     setContentValue(getList);
@@ -35,7 +40,10 @@ function App() {
           path="/add"
           element={<ContentAdd addValue={addValue} updateValue={updateValue} />}
         />
-        <Route path="/:id" element={<RecipeDetail />} />
+        <Route
+          path="/:id"
+          element={<RecipeDetail deleteValue={deleteValue} />}
+        />
       </Routes>
     </BrowserRouter>
   );

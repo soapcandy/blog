@@ -1,8 +1,12 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-function RecipeDetail() {
+function RecipeDetail({ deleteValue }) {
   const location = useLocation();
   const item = location.state;
+
+  const handleDelete = () => {
+    deleteValue(item.id);
+  };
 
   return (
     <>
@@ -12,6 +16,9 @@ function RecipeDetail() {
       <div>{item.createdAt}</div>
       <NavLink to={"/add"} state={item}>
         수정
+      </NavLink>
+      <NavLink to={"/"} onClick={handleDelete}>
+        삭제
       </NavLink>
       <NavLink to={"/"}>홈으로</NavLink>
     </>
