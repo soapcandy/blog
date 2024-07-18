@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ContentContext } from "../contexts/ContentContext";
 
-function ContentAdd({ addValue, updateValue }) {
+function ContentAdd() {
+  const { addValue, updateValue } = useContext(ContentContext);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");

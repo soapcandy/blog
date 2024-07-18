@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import RecipeItem from "../components/recipe/RecipeItem";
+import { useContext } from "react";
+import { ContentContext } from "../contexts/ContentContext";
 
-function RecipePage({ contentValue }) {
+function RecipePage() {
+  const { contentValue } = useContext(ContentContext);
   return (
     <div>
       {contentValue.map((item) => (

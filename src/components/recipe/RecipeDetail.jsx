@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { ContentContext } from "../../contexts/ContentContext";
 
-function RecipeDetail({ deleteValue }) {
+function RecipeDetail() {
+  const { deleteValue } = useContext(ContentContext);
   const location = useLocation();
   const item = location.state;
 
