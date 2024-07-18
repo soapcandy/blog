@@ -1,0 +1,9 @@
+.category {
+    font-size: large;
+    background-color: #f2f2f2;
+    color: #333333;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    text-decoration: none;
+}

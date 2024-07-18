@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "../../styles/SubHeader.css";
 
 const category = [
   {
@@ -15,7 +16,12 @@ function SubHeader() {
   return (
     <>
       {category.map((c) => (
-        <NavLink key={c.name} to={c.name === "Recipe" ? "/" : `/${c.name}`}>
+        <NavLink
+          className={"category"}
+          key={c.name}
+          to={c.name === "Recipe" ? "/" : `/${c.name}`}
+          style={{}}
+        >
           {c.text}
         </NavLink>
       ))}
