@@ -44,7 +44,7 @@ function ContentAdd() {
     setTitle("");
     setAuthor("");
     setContent("");
-    navigate("/");
+    navigate(-1);
   };
 
   return (

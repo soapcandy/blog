@@ -6,8 +6,8 @@ const category = [
     text: "레시피",
   },
   {
-    name: "store",
-    text: "추후 추가 예정",
+    name: "gram",
+    text: "맛집",
   },
 ];
 
