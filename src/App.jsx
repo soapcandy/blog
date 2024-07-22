@@ -14,7 +14,7 @@ function App() {
           <Route element={<MainFrame />}>
             <Route path="/" element={<RecipePage />} />
             <Route path="/add" element={<ContentAdd />} />
-            <Route path="/:id" element={<RecipeDetail />} />
+            <Route path="/:type?/:id" element={<RecipeDetail />} />
             <Route path="/gram" element={<FoodgramPage />} />
           </Route>
         </Routes>
