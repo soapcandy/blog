@@ -1,0 +1,32 @@
+.RecipeContainer {
+    display: flex;
+    width: 40rem;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+}
+
+.RecipeImage {
+    width: 160px;
+    height: 160px;
+    background-color: skyblue;
+    box-sizing: border-box;
+    border-right: 1px solid gray;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.RecipeTitle {
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.RecipeContent {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 450px;  
+    overflow: hidden;
+}

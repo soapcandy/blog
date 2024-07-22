@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ContentContext } from "../contexts/ContentContext";
+import classes from "../styles/ContentAdd.module.css";
 
 function ContentAdd() {
   const { addValue, updateValue } = useContext(ContentContext);
@@ -48,14 +49,22 @@ function ContentAdd() {
   };
 
   return (
-    <div>
+    <div className={classes.AddContainer}>
       <div>
         <label>작성자</label>
-        <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+        <input
+          value={author}
+          maxLength={15}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
       </div>
       <div>
         <label>제목</label>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input
+          value={title}
+          maxLength={15}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </div>
       <div>
         <label>내용</label>
@@ -64,7 +73,10 @@ function ContentAdd() {
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <button onClick={handleSubmit}>{isEdit ? "Update" : "Add"}</button>
+      <div className={classes.ContentAddButton}>
+        <button onClick={handleSubmit}>{isEdit ? "변경" : "추가"}</button>
+        <button onClick={() => navigate(-1)}>취소</button>
+      </div>
     </div>
   );
 }

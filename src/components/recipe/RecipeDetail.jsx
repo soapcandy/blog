@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ContentContext } from "../../contexts/ContentContext";
+import classes from "../../styles/recipe/RecipeDetail.module.css";
 
 function RecipeDetail() {
   const { deleteValue } = useContext(ContentContext);
@@ -12,19 +13,27 @@ function RecipeDetail() {
   };
 
   return (
-    <>
-      <div>{item.author}</div>
-      <div>{item.title}</div>
-      <div>{item.content}</div>
-      <div>{item.createdAt}</div>
-      <NavLink to={"/add"} state={item}>
-        수정
-      </NavLink>
-      <NavLink to={"/"} onClick={handleDelete}>
-        삭제
-      </NavLink>
-      <NavLink to={"/"}>홈으로</NavLink>
-    </>
+    <div className={classes.container}>
+      <div className={classes.title}>{item.title}</div>
+      <div className={classes.subTitle}>
+        <div className={classes.subLeft}>
+          <div>{item.author}</div>
+          <div>{item.createdAt}</div>
+        </div>
+        <span>
+          <div className={classes.navContainer}>
+            <NavLink to={"/add"} state={item}>
+              수정
+            </NavLink>
+            <NavLink to={"/"} onClick={handleDelete}>
+              삭제
+            </NavLink>
+            <NavLink to={"/"}>홈으로</NavLink>
+          </div>
+        </span>
+      </div>
+      <div className={classes.content}>{item.content}</div>
+    </div>
   );
 }
 export default RecipeDetail;

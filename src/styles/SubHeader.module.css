@@ -1,3 +1,8 @@
+.subHeader {
+    display: flex;
+    align-items: center;
+}
+
 .category {
     font-size: large;
     background-color: #f2f2f2;

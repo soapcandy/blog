@@ -1,14 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/layouts/Header";
 import SubHeader from "../components/layouts/SubHeader";
-import "../styles/MainFrame.css";
+import classes from "../styles/MainFrame.module.css";
 
 function MainFrame() {
   return (
-    <div className="container">
+    <div className={classes.container}>
       <Header />
-      <SubHeader />
-      <div className="contents">
+      <div className={classes.subContainer}>
+        <SubHeader />
+      </div>
+      <div className={classes.contents}>
         <Outlet />
       </div>
     </div>

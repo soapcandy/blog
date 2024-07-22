@@ -2,15 +2,18 @@ import { NavLink } from "react-router-dom";
 import RecipeItem from "../components/recipe/RecipeItem";
 import { useContext } from "react";
 import { ContentContext } from "../contexts/ContentContext";
+import classes from "../styles/recipe/RecipePage.module.css";
 
 function RecipePage() {
   const { contentValue } = useContext(ContentContext);
   return (
     <div>
+      <div className={classes.addContainer}>
+        <NavLink to={"/add"}>글쓰기</NavLink>
+      </div>
       {contentValue.map((item) => (
         <RecipeItem key={item.id} item={item} />
       ))}
-      <NavLink to={"/add"}>글쓰기</NavLink>
     </div>
   );
 }
