@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { ContentContext } from "../../contexts/ContentContext";
 import classes from "../../styles/recipe/RecipeDetail.module.css";
 
-function RecipeDetail() {
+function ContentDetail() {
   const { deleteValue } = useContext(ContentContext);
   const location = useLocation();
   const item = location.state;
@@ -36,4 +36,4 @@ function RecipeDetail() {
     </div>
   );
 }
-export default RecipeDetail;
+export default ContentDetail;
