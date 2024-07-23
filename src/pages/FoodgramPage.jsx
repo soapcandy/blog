@@ -17,7 +17,7 @@ function FoodgramPage() {
       <div className={classes.inputText}>
         <input
           type="text"
-          placeholder="레시피 검색..."
+          placeholder="맛집 찾기..."
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
