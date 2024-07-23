@@ -1,16 +1,25 @@
 import { useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ContentContext } from "../../contexts/ContentContext";
+import { GramContext } from "../../contexts/GramContext";
 import classes from "../../styles/recipe/RecipeDetail.module.css";
 
 function ContentDetail() {
-  const { deleteValue } = useContext(ContentContext);
   const location = useLocation();
+  const navigate = useNavigate();
   const item = location.state;
+
+  const isGram = location.pathname.includes("/gram");
+  const { deleteValue } = isGram
+    ? useContext(GramContext)
+    : useContext(ContentContext);
 
   const handleDelete = () => {
     deleteValue(item.id);
+    navigate(-1);
   };
+
+  console.log(item);
 
   return (
     <div className={classes.container}>
@@ -22,12 +31,10 @@ function ContentDetail() {
         </div>
         <span>
           <div className={classes.navContainer}>
-            <NavLink to="/add" state={item}>
+            <NavLink to="/add" state={location}>
               수정
             </NavLink>
-            <NavLink to="/" onClick={handleDelete}>
-              삭제
-            </NavLink>
+            <button onClick={handleDelete}>삭제</button>
             <NavLink to="/">홈으로</NavLink>
           </div>
         </span>

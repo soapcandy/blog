@@ -1,26 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ContentContext } from "../contexts/ContentContext";
-import classes from "../styles/ContentAdd.module.css";
 import { GramContext } from "../contexts/GramContext";
+import classes from "../styles/ContentAdd.module.css";
 
 function ContentAdd() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  if (location.state.includes("gram")) {
-    var context = useContext(GramContext);
-  } else {
-    var context = useContext(ContentContext);
-  }
-  const { addValue, updateValue } = context;
+  const isGram = location.state.pathname.includes("/gram");
+  const { addValue, updateValue } = isGram
+    ? useContext(GramContext)
+    : useContext(ContentContext);
 
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const [id, setId] = useState(null);
-  const item = location.state;
+  const item = location.state.state;
 
   useEffect(() => {
     if (item == "gram" || item == "recipe") {
