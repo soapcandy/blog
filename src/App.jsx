@@ -5,19 +5,22 @@ import { ContentProvider } from "./contexts/ContentContext";
 import FoodgramPage from "./pages/FoodgramPage";
 import MainFrame from "./pages/MainFrame";
 import ContentDetail from "./components/common/ContentDetail";
+import { GramProvider } from "./contexts/GramContext";
 
 function App() {
   return (
     <BrowserRouter>
       <ContentProvider>
-        <Routes>
-          <Route element={<MainFrame />}>
-            <Route path="/" element={<RecipePage />} />
-            <Route path="/add" element={<ContentAdd />} />
-            <Route path="/:type?/:id" element={<ContentDetail />} />
-            <Route path="/gram" element={<FoodgramPage />} />
-          </Route>
-        </Routes>
+        <GramProvider>
+          <Routes>
+            <Route element={<MainFrame />}>
+              <Route path="/" element={<RecipePage />} />
+              <Route path="/add" element={<ContentAdd />} />
+              <Route path="/:type?/:id" element={<ContentDetail />} />
+              <Route path="/gram" element={<FoodgramPage />} />
+            </Route>
+          </Routes>
+        </GramProvider>
       </ContentProvider>
     </BrowserRouter>
   );

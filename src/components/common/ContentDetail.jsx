@@ -22,13 +22,13 @@ function ContentDetail() {
         </div>
         <span>
           <div className={classes.navContainer}>
-            <NavLink to={"/add"} state={item}>
+            <NavLink to="/add" state={item}>
               수정
             </NavLink>
-            <NavLink to={"/"} onClick={handleDelete}>
+            <NavLink to="/" onClick={handleDelete}>
               삭제
             </NavLink>
-            <NavLink to={"/"}>홈으로</NavLink>
+            <NavLink to="/">홈으로</NavLink>
           </div>
         </span>
       </div>

@@ -6,10 +6,13 @@ import classes from "../styles/recipe/RecipePage.module.css";
 
 function RecipePage() {
   const { contentValue } = useContext(ContentContext);
+
   return (
     <div>
       <div className={classes.addContainer}>
-        <NavLink to={"/add"}>글쓰기</NavLink>
+        <NavLink to="/add" state="recipe">
+          글쓰기
+        </NavLink>
       </div>
       {contentValue.map((item) => (
         <RecipeItem key={item.id} item={item} />
