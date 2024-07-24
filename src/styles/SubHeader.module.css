@@ -1,14 +1,24 @@
 .subHeader {
     display: flex;
     align-items: center;
+    /* justify-content: flex-start; 
+    margin-right: calc(33.33%); */
+
 }
 
 .category {
+    width: 70px;
     font-size: large;
-    background-color: #f2f2f2;
     color: #333333;
-    padding: 10px 20px;
+    padding: 0px 20px;
     margin: 0 10px;
     cursor: pointer;
     text-decoration: none;
 }
+
+.category:not(:last-child) {
+    border-right: 2px solid #000000;
+    padding-right: 15px;
+}
+
+
