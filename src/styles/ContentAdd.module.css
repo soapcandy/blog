@@ -1,4 +1,4 @@
-.AddContainer {
+.addContainer {
     margin-bottom: 15px;
 }
 
@@ -22,7 +22,7 @@ textarea {
     resize: none;
 }
 
-.ContentAddButton {
+.contentAddButton {
     display: flex;
     justify-content: space-between;
 }

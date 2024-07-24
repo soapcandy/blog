@@ -22,12 +22,12 @@ export const ContentProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const getList = JSON.parse(localStorage.getItem("List"));
+    const getList = JSON.parse(localStorage.getItem("list"));
     setContentValue(getList);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("List", JSON.stringify(contentValue));
+    localStorage.setItem("list", JSON.stringify(contentValue));
   }, [contentValue]);
 
   return (

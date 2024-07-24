@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 
-function useSearch({ contentValue }) {
-  const [searchValue, setSearchValue] = useState("");
+function useSearch(contentValue) {
   const [filteredItems, setFilteredItems] = useState(contentValue);
 
-  useEffect(() => {
+  const filterItems = (searchValue) => {
     const searchTerm = searchValue.trim().toLowerCase();
     const filtered = contentValue.filter((item) =>
       item.title.toLowerCase().includes(searchTerm)
     );
     setFilteredItems(filtered);
-  }, [searchValue, contentValue]);
+  };
 
-  return { searchValue, setSearchValue, filterItems: filteredItems };
+  return { filterItems, filteredItems };
 }
 export default useSearch;

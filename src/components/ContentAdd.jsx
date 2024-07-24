@@ -58,7 +58,7 @@ function ContentAdd() {
   };
 
   return (
-    <div className={classes.AddContainer}>
+    <div className={classes.addContainer}>
       <div>
         <label>작성자</label>
         <input
@@ -82,7 +82,7 @@ function ContentAdd() {
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <div className={classes.ContentAddButton}>
+      <div className={classes.contentAddButton}>
         <button onClick={handleSubmit}>{isEdit ? "변경" : "추가"}</button>
         <button onClick={() => navigate(-1)}>취소</button>
       </div>

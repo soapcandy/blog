@@ -3,11 +3,11 @@ import classes from "../../styles/recipe/RecipeItem.module.css";
 
 function FoodgramItem({ item }) {
   return (
-    <NavLink to={`${item.id}`} state={item} className={classes.RecipeContainer}>
-      <div className={classes.RecipeImage}>이미지 위치</div>
+    <NavLink to={`${item.id}`} state={item} className={classes.recipeContainer}>
+      <div className={classes.recipeImage}>이미지 위치</div>
       <div>
-        <div className={classes.RecipeTitle}>{item.title}</div>
-        <div className={classes.RecipeContent}>{item.content}</div>
+        <div className={classes.recipeTitle}>{item.title}</div>
+        <div className={classes.recipeContent}>{item.content}</div>
       </div>
     </NavLink>
   );

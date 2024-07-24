@@ -1,4 +1,4 @@
-.RecipeContainer {
+.recipeContainer {
     display: flex;
     width: 40rem;
     margin-bottom: 30px;
@@ -7,7 +7,7 @@
     border: 1px solid black;
 }
 
-.RecipeImage {
+.recipeImage {
     width: 160px;
     height: 160px;
     background-color: skyblue;
@@ -17,13 +17,13 @@
     object-fit: cover;
 }
 
-.RecipeTitle {
+.recipeTitle {
     font-size: x-large;
     font-weight: bold;
     padding-bottom: 10px;
 }
 
-.RecipeContent {
+.recipeContent {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

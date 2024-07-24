@@ -20,7 +20,6 @@ function SubHeader() {
           className={classes.category}
           key={c.name}
           to={c.name === "Recipe" ? "/" : `/${c.name}`}
-          style={{}}
         >
           {c.text}
         </NavLink>

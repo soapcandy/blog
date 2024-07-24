@@ -1,16 +1,19 @@
 import { NavLink, useLocation } from "react-router-dom";
 import RecipeItem from "../components/recipe/RecipeItem";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContentContext } from "../contexts/ContentContext";
 import classes from "../styles/recipe/RecipePage.module.css";
 import useSearch from "../hooks/useSearch";
 
 function RecipePage() {
   const { contentValue } = useContext(ContentContext);
-  const { searchValue, setSearchValue, filterItems } = useSearch({
-    contentValue,
-  });
+  const { filterItems, filteredItems } = useSearch(contentValue);
   const item = useLocation();
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    filterItems(searchValue);
+  }, [searchValue]);
 
   return (
     <div className={classes.container}>
@@ -27,7 +30,7 @@ function RecipePage() {
           글쓰기
         </NavLink>
       </div>
-      {filterItems.map((item) => (
+      {filteredItems.map((item) => (
         <RecipeItem key={item.id} item={item} />
       ))}
     </div>
