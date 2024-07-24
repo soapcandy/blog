@@ -22,7 +22,7 @@ export const GramProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const getList = JSON.parse(localStorage.getItem("gramList"));
+    const getList = JSON.parse(localStorage.getItem("gramList")) || [];
     setContentValue(getList);
   }, []);
 

@@ -22,7 +22,7 @@ export const ContentProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const getList = JSON.parse(localStorage.getItem("list"));
+    const getList = JSON.parse(localStorage.getItem("list")) || [];
     setContentValue(getList);
   }, []);
 
