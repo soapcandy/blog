@@ -13,7 +13,7 @@ function FoodgramPage() {
 
   useEffect(() => {
     filterItems(searchValue);
-  }, [searchValue]);
+  }, [searchValue, contentValue]);
 
   return (
     <div className={classes.container}>
