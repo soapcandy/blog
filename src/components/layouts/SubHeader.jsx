@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "../../styles/SubHeader.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { SearchContext } from "../../contexts/SearchContext";
 
 const category = [
   {
@@ -22,7 +23,7 @@ const category = [
 ];
 
 function SubHeader() {
-  // const [searchValue, setSearchValue] = useState("");
+  const { searchValue, setSearchValue } = useContext(SearchContext);
 
   return (
     <div className={classes.container}>
@@ -37,14 +38,14 @@ function SubHeader() {
           </NavLink>
         ))}
       </div>
-      {/* <div className={classes.inputText}>
+      <div className={classes.inputText}>
         <input
           type="text"
           placeholder="레시피 검색..."
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-      </div> */}
+      </div>
     </div>
   );
 }

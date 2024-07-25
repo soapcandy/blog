@@ -4,12 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import { ContentContext } from "../contexts/ContentContext";
 import classes from "../styles/recipe/RecipePage.module.css";
 import useSearch from "../hooks/useSearch";
+import { SearchContext } from "../contexts/SearchContext";
 
 function RecipePage() {
   const { contentValue } = useContext(ContentContext);
+  const { searchValue } = useContext(SearchContext);
   const { filterItems, filteredItems } = useSearch(contentValue);
   const item = useLocation();
-  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     filterItems(searchValue);
@@ -17,14 +18,6 @@ function RecipePage() {
 
   return (
     <div className={classes.container}>
-      <div className={classes.inputText}>
-        <input
-          type="text"
-          placeholder="레시피 검색..."
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-      </div>
       <div className={classes.addContainer}>
         <NavLink to="/add" state={item}>
           글쓰기
