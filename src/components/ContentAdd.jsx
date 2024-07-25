@@ -62,6 +62,7 @@ function ContentAdd() {
       <div>
         <label>작성자</label>
         <input
+          className={classes.input}
           value={author}
           maxLength={15}
           onChange={(e) => setAuthor(e.target.value)}
@@ -70,6 +71,7 @@ function ContentAdd() {
       <div>
         <label>제목</label>
         <input
+          className={classes.input}
           value={title}
           maxLength={15}
           onChange={(e) => setTitle(e.target.value)}
@@ -83,8 +85,8 @@ function ContentAdd() {
         />
       </div>
       <div className={classes.contentAddButton}>
-        <button onClick={handleSubmit}>{isEdit ? "변경" : "추가"}</button>
         <button onClick={() => navigate(-1)}>취소</button>
+        <button onClick={handleSubmit}>{isEdit ? "변경" : "추가"}</button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import RecipeItem from "../components/recipe/RecipeItem";
-import { useContext, useEffect, useState } from "react";
 import { ContentContext } from "../contexts/ContentContext";
 import classes from "../styles/recipe/RecipePage.module.css";
 import useSearch from "../hooks/useSearch";
