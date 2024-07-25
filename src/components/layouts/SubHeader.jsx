@@ -4,12 +4,20 @@ import { useState } from "react";
 
 const category = [
   {
-    name: "Recipe",
+    name: "recipe",
     text: "레시피",
   },
   {
     name: "gram",
     text: "맛집",
+  },
+  {
+    name: "gram2",
+    text: "테스트1",
+  },
+  {
+    name: "gram3",
+    text: "테스트2",
   },
 ];
 
@@ -23,7 +31,7 @@ function SubHeader() {
           <NavLink
             className={classes.category}
             key={c.name}
-            to={c.name === "Recipe" ? "/" : `/${c.name}`}
+            to={c.name === "recipe" ? "/" : `/${c.name}`}
           >
             {c.text}
           </NavLink>
