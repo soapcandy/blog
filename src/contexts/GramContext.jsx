@@ -1,34 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const GramContext = createContext();
 
 export const GramProvider = ({ children }) => {
-  const [contentValue, setContentValue] = useState([]);
-
-  const addValue = (contentList) => {
-    setContentValue([...contentValue, contentList]);
-  };
-
-  const updateValue = (updatedContent) => {
-    const updatedList = contentValue.map((item) =>
-      item.id === updatedContent.id ? updatedContent : item
-    );
-    setContentValue(updatedList);
-  };
-
-  const deleteValue = (id) => {
-    const updatedList = contentValue.filter((item) => item.id !== id);
-    setContentValue(updatedList);
-  };
-
-  useEffect(() => {
-    const getList = JSON.parse(localStorage.getItem("gramList")) || [];
-    setContentValue(getList);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("gramList", JSON.stringify(contentValue));
-  }, [contentValue]);
+  const { contentValue, addValue, updateValue, deleteValue } =
+    useLocalStorage("gramList");
 
   return (
     <GramContext.Provider

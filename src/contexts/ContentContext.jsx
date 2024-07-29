@@ -1,34 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const ContentContext = createContext();
 
 export const ContentProvider = ({ children }) => {
-  const [contentValue, setContentValue] = useState([]);
-
-  const addValue = (contentList) => {
-    setContentValue([...contentValue, contentList]);
-  };
-
-  const updateValue = (updatedContent) => {
-    const updatedList = contentValue.map((item) =>
-      item.id === updatedContent.id ? updatedContent : item
-    );
-    setContentValue(updatedList);
-  };
-
-  const deleteValue = (id) => {
-    const updatedList = contentValue.filter((item) => item.id !== id);
-    setContentValue(updatedList);
-  };
-
-  useEffect(() => {
-    const getList = JSON.parse(localStorage.getItem("list")) || [];
-    setContentValue(getList);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(contentValue));
-  }, [contentValue]);
+  const { contentValue, addValue, updateValue, deleteValue } =
+    useLocalStorage("list");
 
   return (
     <ContentContext.Provider
