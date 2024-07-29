@@ -1,4 +1,4 @@
-import ContentAdd from "./components/ContentAdd";
+import ContentAdd from "./components/input/ContentAdd";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RecipePage from "./pages/RecipePage";
 import { ContentProvider } from "./contexts/ContentContext";
