@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-import classes from "../../styles/recipe/RecipeItem.module.css";
-import background from "../../img/istockphoto.jpg";
+import classes from "C:/React/blog/src/styles/ContentItem.module.css";
+import background from "C:/React/blog/src/img/istockphoto.jpg";
 
 function ContentItem({ item }) {
   return (
-    <NavLink to={`${item.id}`} state={item} className={classes.RecipeContainer}>
+    <NavLink to={`${item.id}`} state={item} className={classes.container}>
       <div
-        className={classes.RecipeImage}
-        style={{ backgroundImage: `${background}` }}
+        className={classes.image}
+        style={{ backgroundImage: `url(${background})` }}
       ></div>
       <div>
-        <div className={classes.RecipeTitle}>{item.title}</div>
-        <div className={classes.RecipeContent}>{item.content}</div>
+        <div className={classes.title}>{item.title}</div>
+        <div className={classes.content}>{item.content}</div>
       </div>
     </NavLink>
   );

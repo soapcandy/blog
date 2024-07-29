@@ -1,32 +1,8 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import RecipeItem from "../components/recipe/RecipeItem";
 import { ContentContext } from "../contexts/ContentContext";
-import classes from "../styles/recipe/RecipePage.module.css";
-import useSearch from "../hooks/useSearch";
-import { SearchContext } from "../contexts/SearchContext";
+import ContentPage from "C:/React/blog/src/components/common/ContentPage.jsx";
 
 function RecipePage() {
-  const { contentValue } = useContext(ContentContext);
-  const { searchValue } = useContext(SearchContext);
-  const { filterItems, filteredItems } = useSearch(contentValue);
-  const item = useLocation();
-
-  useEffect(() => {
-    filterItems(searchValue);
-  }, [searchValue, contentValue]);
-
-  return (
-    <div className={classes.container}>
-      <div className={classes.addContainer}>
-        <NavLink to="/add" state={item}>
-          글쓰기
-        </NavLink>
-      </div>
-      {filteredItems.map((item) => (
-        <RecipeItem key={item.id} item={item} />
-      ))}
-    </div>
-  );
+  return <ContentPage context={ContentContext} />;
 }
+
 export default RecipePage;
