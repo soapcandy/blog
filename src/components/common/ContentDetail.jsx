@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ContentContext } from "../../contexts/ContentContext";
 import { GramContext } from "../../contexts/GramContext";
-import classes from "../../styles/recipe/RecipeDetail.module.css";
+import classes from "../../styles/ContentDetail.module.css";
 
 function ContentDetail() {
   const location = useLocation();
