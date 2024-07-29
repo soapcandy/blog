@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ContentContext } from "../../contexts/ContentContext";
 import { GramContext } from "../../contexts/GramContext";
